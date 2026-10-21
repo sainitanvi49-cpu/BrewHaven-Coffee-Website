@@ -1,0 +1,970 @@
+/* =========================================
+   1. ROOT VARIABLES
+========================================= */
+
+:root {
+    --coffee-dark: #3E2723;
+    --coffee-medium: #6F4E37;
+    --coffee-light: #C4A484;
+    --coffee-accent: #D2B48C;
+    --coffee-cream: #F5F5DC;
+    --coffee-gold: #D4AF37;
+
+    --text-dark: #2C2416;
+    --text-light: #F3F3F3;
+
+    --transition: all 0.3s ease;
+}
+
+
+/* =========================================
+   2. GLOBAL STYLES
+========================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: var(--coffee-cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   3. HEADER
+========================================= */
+
+header {
+    background-color: #161515;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--coffee-medium);
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    color: var(--coffee-gold);
+}
+
+.logo i {
+    color: var(--coffee-gold);
+    font-size: 28px;
+}
+
+
+/* Navigation */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--coffee-gold);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--coffee-gold);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Header Buttons */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   4. BUTTONS
+========================================= */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--coffee-medium);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--coffee-dark);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--coffee-cream);
+    border-color: var(--coffee-gold);
+}
+
+.btn-secondary:hover {
+    background-color: var(--coffee-gold);
+    color: var(--coffee-dark);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   5. HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 130px 0 60px;
+    background: linear-gradient(
+        135deg,
+        #0b0705 0%,
+        #010000 100%
+    );
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Hero Content */
+
+.hero-content {
+    flex: 1;
+    min-width: 0;
+    color: var(--text-light);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: var(--coffee-accent);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-subtitle::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background-color: var(--coffee-gold);
+    flex-shrink: 0;
+}
+
+.hero-title {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.hero-title span {
+    color: var(--coffee-gold);
+}
+
+.hero-text {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    max-width: 650px;
+    color: var(--text-light);
+    overflow-wrap: anywhere;
+}
+
+
+/* Hero Buttons */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+
+/* Hero Image */
+
+.hero-container > img {
+    width: 45%;
+    max-width: 520px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   6. PRODUCTS SECTION
+========================================= */
+
+.products {
+    padding: 100px 0;
+    position: relative;
+    background-color: #161515;
+    border-top: 4px solid var(--coffee-gold);
+    scroll-margin-top: 100px;
+}
+
+
+/* Section Heading */
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    color: var(--coffee-gold);
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--coffee-gold);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--coffee-gold);
+}
+
+.section-desc {
+    font-size: 17px;
+    color: var(--text-light);
+    margin-top: 15px;
+}
+
+
+/* Product Grid */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 300px), 1fr)
+    );
+    gap: 30px;
+    align-items: stretch;
+}
+
+
+/* Product Card */
+
+.product-card {
+    min-width: 0;
+    background-color: var(--coffee-dark);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--coffee-gold);
+}
+
+
+/* Product Image */
+
+.product-img {
+    height: 260px;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+
+/* Product Information */
+
+.product-info {
+    padding: 25px;
+    position: relative;
+}
+
+.product-tag {
+    display: inline-block;
+    background-color: var(--coffee-gold);
+    color: var(--coffee-dark);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.product-title {
+    font-size: 21px;
+    color: var(--coffee-accent);
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.product-desc {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+
+/* Product Price and Rating */
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.product-price {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--coffee-gold);
+}
+
+.rating {
+    color: var(--coffee-gold);
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   7. FOOTER
+========================================= */
+
+footer {
+    background-color: var(--coffee-dark);
+    color: var(--text-light);
+    padding: 65px 0 25px;
+    border-top: 4px solid var(--coffee-gold);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+    margin-bottom: 45px;
+}
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer-column h3 {
+    font-size: 21px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--coffee-cream);
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--coffee-gold);
+}
+
+.footer-column p {
+    color: var(--coffee-accent);
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+
+/* Footer Links */
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.footer-links li i {
+    color: var(--coffee-gold);
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.footer-links a {
+    color: var(--coffee-accent);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--coffee-gold);
+}
+
+
+/* Social Links */
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--coffee-cream);
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--coffee-gold);
+    color: var(--coffee-dark);
+    transform: translateY(-3px);
+}
+
+
+/* Copyright */
+
+.copyright {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--coffee-accent);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   8. ANIMATIONS
+========================================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   9. TABLET RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 992px) {
+
+    /* Header */
+
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .logo-text {
+        font-size: 25px;
+    }
+
+    .nav-buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 9px 16px;
+        font-size: 14px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding-top: 160px;
+    }
+
+    .hero-container {
+        gap: 25px;
+    }
+
+    .hero-container > img {
+        width: 42%;
+        height: 350px;
+    }
+
+    .hero-title {
+        font-size: clamp(34px, 4.5vw, 45px);
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+
+    /* Products */
+
+    .products {
+        padding: 80px 0;
+    }
+
+    .product-grid {
+        gap: 22px;
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .product-title {
+        font-size: 19px;
+    }
+
+
+    /* Footer */
+
+    .footer-content {
+        gap: 25px;
+    }
+
+}
+
+
+/* =========================================
+   10. MOBILE RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Header */
+
+    header {
+        padding: 12px 0;
+    }
+
+    .header-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .logo-text {
+        font-size: 25px;
+    }
+
+    .logo i {
+        font-size: 24px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: auto;
+        padding: 240px 0 50px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        margin-bottom: 22px;
+    }
+
+    .hero-title {
+        font-size: clamp(30px, 6vw, 42px);
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .hero-container > img {
+        width: 100%;
+        max-width: none;
+        height: 300px;
+    }
+
+
+    /* Products */
+
+    .products {
+        padding: 65px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-subtitle {
+        font-size: 17px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .section-desc {
+        font-size: 15px;
+    }
+
+    .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .product-img {
+        height: 240px;
+    }
+
+    .product-title {
+        font-size: 21px;
+    }
+
+    .product-desc {
+        font-size: 15px;
+    }
+
+    .product-price {
+        font-size: 21px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding: 45px 0 25px;
+    }
+
+    .footer-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        margin-bottom: 35px;
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .copyright {
+        font-size: 13px;
+        padding-top: 20px;
+    }
+
+}
+
+
+/* =========================================
+   11. SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        width: 92%;
+    }
+
+    /* Header */
+
+    .logo-text {
+        font-size: 22px;
+    }
+
+    .logo i {
+        font-size: 22px;
+    }
+
+    nav ul {
+        gap: 8px 13px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .nav-buttons {
+        gap: 8px;
+    }
+
+    .nav-buttons .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding-top: 230px;
+    }
+
+    .hero-title {
+        font-size: 29px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-container > img {
+        height: 230px;
+    }
+
+
+    /* Products */
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-title {
+        font-size: 19px;
+    }
+
+    .product-price {
+        font-size: 20px;
+    }
+
+    .rating {
+        font-size: 13px;
+    }
+
+
+    /* Footer */
+
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   12. REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
